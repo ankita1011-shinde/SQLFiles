@@ -68,6 +68,10 @@ insert into Person (personId,name,age) values (9,'Amol',19)
 insert into Person (personId,name,age) values (10,'Sai',20)
 update Person set age=33 where personId=4
 
+update Person set Country='USA' where personId=4
+update Person set Country='UK' where personId=5
+update Person set Country='UK' where personId=6
+update Person set Country='USA' where personId=8
 Select name,age from Person
 Select * from Person where personId=3
 Select distinct Country from Person
@@ -76,7 +80,48 @@ Select * from Person where personId<>4
 Select * from Person where personId>=3
 Select * from Person where personId<5
 Select * from Person where personId>8
-Select * from Person where name='Ankita'
+Select * from Person where name='Ved'
 Select * from Person where age=30
 
-Select * from Person
+Select * from Person where age between 20 and 30
+Select * from Person where personId in(1,2,4)
+Select * from Person where personId not in(1,2,4,6,7)
+Select * from person where Country in('USA','UK')
+Select * from person where Country not in('UK')
+Select * from Person where Country='USA' or Country='india'
+Select * from Person where Country='USA' and age<=33
+Select * from Person where not  Country='USA' 
+Select * from Person where  name='Ankita' or name='Rohit'
+Select * from Person where Country='india' and age<=25
+insert into Person  values (11,'Annei',19,'America')
+insert into Person  values (12,'Raman',31,'America')
+insert into Person  values (13,'Vinnei',21,'UK')
+insert into Person  values (14,'sara',21,'America')
+insert into Person  values (15,'pari',21,'india')
+insert into Person  values (16,'Neha',21,'UK')
+
+Select * from Person where name like 'j%'
+Select * from Person where name like 'r%'
+Select * from Person where name like '%n'
+Select * from Person where name like '%t%'
+Select * from Person where name like '%v%'
+Select * from Person where name like 'V__'
+Select * from Person where name like '__M'
+Select * from Person where name not like 'V%'
+Select * from Person where name like '[rh]%'
+Select * from Person where name like '[a-p]%'
+
+insert into Person values(17,'Sahil',23,null)
+insert into Person values(18,'Chetan',26,null)
+insert into Person values(19,'Fazel',23,null)
+
+Select * from Person where Country is null
+Select * from Person where Country is not null
+
+
+Select * from Person order by name --ascending
+Select * from Person order by name desc -- descending
+
+--group by clause
+Select Country,count(personId) as Parsoncount from Person
+group by Country
